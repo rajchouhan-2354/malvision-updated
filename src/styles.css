@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap');
+
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+/* Fonts */
+
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  /* Global Backgrounds */
+  --color-background: #F7FAFD; /* Very Light Background */
+  --color-background-alt: #FFFFFF; /* White */
+  --color-background-process: #EAF4FF; /* Light Blue */
+  
+  /* Text Colors */
+  --color-foreground: #07152F; /* Primary Text */
+  
+  /* Primary Navy Colors (for text and dark sections) */
+  --color-primary: #07152F; /* Primary Text */
+  --color-primary-navy: #0B2E73; /* Primary Navy */
+  --color-primary-deep: #061B45; /* Deep Navy (Dark Sections) */
+  
+  /* Secondary Text */
+  --color-secondary: #52627A;
+  
+  /* Brand Blue Accents */
+  --color-accent: #0878E8; /* Brand Blue */
+  --color-accent-bright: #168BFF; /* Bright Blue */
+  --color-accent-foreground: #FFFFFF;
+  
+  /* Borders */
+  --color-border: #DCE6F2;
+  
+  /* Glows */
+  --color-glow-blue: rgba(8, 120, 232, 0.18);
+
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Space Grotesk", "General Sans", system-ui, sans-serif;
+}
+
+:root {
+  /* Very Light Background */
+  --background: #F7FAFD;
+  /* Deep navy text */
+  --foreground: #07152F;
+
+  --primary: #07152F;
+  --secondary: #52627A;
+  --accent: #0878E8;
+
+  --border: #DCE6F2;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    color: var(--primary);
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+
+  /* Layout utilities */
+  .container-lux {
+    @apply mx-auto px-6 sm:px-12 md:px-20 w-full max-w-[1280px];
+  }
+
+  .section-lux {
+    @apply py-20 md:py-24 lg:py-32;
+  }
+
+  /* Glassmorphism for floating elements */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 24px rgba(10, 31, 68, 0.04);
+  }
+
+  .glass-dark {
+    background: rgba(10, 31, 68, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Malvision Gradient */
+  .bg-gradient-malvision {
+    background: linear-gradient(135deg, var(--accent), var(--color-accent-bright));
+  }
+
+  .text-gradient-malvision {
+    background: linear-gradient(135deg, var(--accent), var(--color-accent-bright));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+/* Background utilities */
+.bg-grid-lux {
+  background-image:
+    linear-gradient(to right, rgba(10, 31, 68, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(10, 31, 68, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
